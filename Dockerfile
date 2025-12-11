@@ -1,4 +1,11 @@
-FROM openjdk:8-jdk-alpine
+# Use Eclipse Temurin JDK 17
+FROM eclipse-temurin:17-jdk
+
+# Expose your application's port
 EXPOSE 8082
-ADD target/timesheet-devops-1.0.jar timesheet-devops-1.0.jar
+
+COPY target/timesheet-devops-1.0.jar app.jar
+
+
+# Run the application
 ENTRYPOINT ["java","-jar","/timesheet-devops-1.0.jar"]
